@@ -1,0 +1,473 @@
+bplist00Ñ_WebMainResourceÕ	
+_WebResourceFrameName_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingName^WebResourceURLPOY«<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">CREATE DATABASE  IF NOT EXISTS `flightproject` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `flightproject`;
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+--
+-- Host: localhost    Database: flightproject
+-- ------------------------------------------------------
+-- Server version	8.0.27
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `aircrafts`
+--
+
+DROP TABLE IF EXISTS `aircrafts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `aircrafts` (
+  `aircraftId` varchar(10) NOT NULL,
+  `numberOfSeats` int NOT NULL,
+  `owner` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`aircraftId`),
+  KEY `owner` (`owner`),
+  CONSTRAINT `aircrafts_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `airlines` (`airlineId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aircrafts`
+--
+
+LOCK TABLES `aircrafts` WRITE;
+/*!40000 ALTER TABLE `aircrafts` DISABLE KEYS */;
+INSERT INTO `aircrafts` VALUES ('Alaska1',5,'AS'),('Alaska2',10,'AS'),('American1',10,'AA'),('American2',15,'AA'),('American3',6,'AA'),('Delta1',20,'DL'),('Emirates1',10,'EK'),('United1',5,'UA');
+/*!40000 ALTER TABLE `aircrafts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `airlines`
+--
+
+DROP TABLE IF EXISTS `airlines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `airlines` (
+  `airlineId` varchar(2) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  PRIMARY KEY (`airlineId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `airlines`
+--
+
+LOCK TABLES `airlines` WRITE;
+/*!40000 ALTER TABLE `airlines` DISABLE KEYS */;
+INSERT INTO `airlines` VALUES ('AA','American','1-800-433-7300'),('AS','Alaska Airlines','1-800-252-7522'),('DL','Delta','1-800-221-1212'),('EK','Emirates','1-800-777-3999'),('NK','Spirit','1-855-728-3555'),('UA','United','1-800-864-8331'),('WN','SouthWestern','1-800-435-9792');
+/*!40000 ALTER TABLE `airlines` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `airports`
+--
+
+DROP TABLE IF EXISTS `airports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `airports` (
+  `airportId` varchar(3) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `streetAddress` varchar(100) DEFAULT NULL,
+  `city` varchar(20) NOT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `zipcode` varchar(5) DEFAULT NULL,
+  `country` varchar(20) NOT NULL,
+  PRIMARY KEY (`airportId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `airports`
+--
+
+LOCK TABLES `airports` WRITE;
+/*!40000 ALTER TABLE `airports` DISABLE KEYS */;
+INSERT INTO `airports` VALUES ('ACY','Atlantic','1-609-645-7895','this','Egg Harbor Township','NJ','08234','America'),('ANC','Ted Stevens Anchorage International Airport','1-907-266-2526','5000 E','Anchorage','AK','99502','USA'),('COS','Colorado Springs Airport','1-719-550-1900','7770 Milton E Proby Pkwy','Anchorage City','CO','80916','USA'),('CUN','Cancun International Airport','52-55-5284-0400','','Cancun','N/A','','Mexico'),('DEN','Denver International Airport','1-303-342-2000','8500 Pena Blvd','Denver','CO','80249','USA'),('EWR','Newark Liberty International Airport','1-973-961-6000','3 Brewster Road','Newark','NJ','07114','USA'),('GSP','Greenville-Spartanburg International Airport','1-864-877-7426','2000 GSP Dr','Greer','SC','29651','USA'),('HNL','Daniel K. Inouye International Airport','1-808-836-6411','300 Rodgers Blvd','Honolulu','HI','96819','USA'),('IAH','George Bush Intercontinental Airport','1-281-230-3100','2800 N Terminal Road','Houston','TX','77032','USA'),('JFK','John F. Kennedy International Airport','1-718-244-4444','','Queens','NY','11430','USA'),('LAS','McCarran International Airport','1-702-261-5211','5757 Wayne Newton Blvd','Las Vegas','NV','89119','USA'),('LAX','Los Angeles International Airport','1-855-463-5252','1 World Way','Los Angeles','CA','90045','USA'),('LGA','LaGuardia Airport','1-718-533-3400','','Queens','NY','11371','USA'),('MEL','Melbourne Airport','6-139-297-1600','VIC 3045','Melbourne','','','Australia'),('MEX','Mexico City International Airport','52-55-2482-2400','','Mexico City','','','Mexico'),('MIA','Miami International Airport','1-305-876-7000','2100 NW 42nd Ave','Miami','FL','33126','USA'),('ORD','O\'Hare International Airport','1-800-832-6352','10000 W O\'Hare Ave','Chicago','IL','60666','USA'),('SEA','Seattle-Tacoma International Airport','1-206-787-5388','17801 International Blvd','Seattle','WA','98158','USA'),('SYD','Sydney Airport','6-129-667-9111','','Sydney','','','Australia'),('YVR','Vancouver International Airport','1-604-207-7077','3211 Grant McConachie Way','Richmond','BC','','Canada'),('YYZ','Toronto Pearson International Airport','1-416-247-7678','6301 Silver Dart Dr','Ontario','Ontario','L5P1B','Canada');
+/*!40000 ALTER TABLE `airports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
+  `id` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES ('emre@hotmail.com','Emre'),('kkb@rutgers.edu','Krit'),('mark@yahoo.com','Mark Pirella');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `days`
+--
+
+DROP TABLE IF EXISTS `days`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `days` (
+  `day` varchar(3) NOT NULL,
+  PRIMARY KEY (`day`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `days`
+--
+
+LOCK TABLES `days` WRITE;
+/*!40000 ALTER TABLE `days` DISABLE KEYS */;
+/*!40000 ALTER TABLE `days` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faqs`
+--
+
+DROP TABLE IF EXISTS `faqs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faqs` (
+  `question` text,
+  `answer` text,
+  `faqId` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`faqId`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faqs`
+--
+
+LOCK TABLES `faqs` WRITE;
+/*!40000 ALTER TABLE `faqs` DISABLE KEYS */;
+INSERT INTO `faqs` VALUES ('What is your name?','My name is Krit',1),('What is your date of Birth?','Why do you need ?',13),('What is your nationality?\r\n',NULL,14);
+/*!40000 ALTER TABLE `faqs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fees`
+--
+
+DROP TABLE IF EXISTS `fees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `fees` (
+  `ticketNumber` int NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `fee` float NOT NULL,
+  KEY `ticketNumber` (`ticketNumber`),
+  CONSTRAINT `fees_ibfk_1` FOREIGN KEY (`ticketNumber`) REFERENCES `tickets` (`ticketNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fees`
+--
+
+LOCK TABLES `fees` WRITE;
+/*!40000 ALTER TABLE `fees` DISABLE KEYS */;
+INSERT INTO `fees` VALUES (20,'Booking Fee',50),(21,'Booking Fee',50),(22,'Booking Fee',50),(23,'Booking Fee',50),(24,'Booking Fee',50),(25,'Booking Fee',50),(26,'Booking Fee',50),(27,'Booking Fee',50),(28,'Booking Fee',50),(29,'Booking Fee',50),(30,'Booking Fee',50),(31,'Booking Fee',50),(32,'Booking Fee',50),(33,'Booking Fee',50),(34,'Booking Fee',50),(35,'Booking Fee',50),(36,'Booking Fee',50),(37,'Booking Fee',50),(38,'Booking Fee',50);
+/*!40000 ALTER TABLE `fees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `flights`
+--
+
+DROP TABLE IF EXISTS `flights`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `flights` (
+  `flightNumber` int NOT NULL,
+  `flightType` varchar(20) NOT NULL DEFAULT 'domestic',
+  `airlineId` varchar(2) NOT NULL,
+  `aircraftId` varchar(10) NOT NULL,
+  `departureAirport` varchar(3) NOT NULL,
+  `arrivalAirport` varchar(3) NOT NULL,
+  `departureTime` time NOT NULL,
+  `arrivalTime` time NOT NULL,
+  `duration` float NOT NULL DEFAULT '0',
+  `cost` float DEFAULT '200',
+  PRIMARY KEY (`flightNumber`,`airlineId`),
+  KEY `airlineId` (`airlineId`),
+  KEY `aircraftId` (`aircraftId`),
+  KEY `departureAirport` (`departureAirport`),
+  KEY `arrivalAirport` (`arrivalAirport`),
+  CONSTRAINT `flights_ibfk_1` FOREIGN KEY (`airlineId`) REFERENCES `airlines` (`airlineId`),
+  CONSTRAINT `flights_ibfk_3` FOREIGN KEY (`departureAirport`) REFERENCES `airports` (`airportId`),
+  CONSTRAINT `flights_ibfk_4` FOREIGN KEY (`arrivalAirport`) REFERENCES `airports` (`airportId`),
+  CONSTRAINT `flights_ibfk_5` FOREIGN KEY (`aircraftId`) REFERENCES `aircrafts` (`aircraftId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `flights`
+--
+
+LOCK TABLES `flights` WRITE;
+/*!40000 ALTER TABLE `flights` DISABLE KEYS */;
+INSERT INTO `flights` VALUES (1,'Domestic','AA','American1','EWR','JFK','05:00:00','03:00:00',2,50),(1,'Domestic','AS','Alaska1','EWR','JFK','17:00:00','21:00:00',4,100),(1,'Domestic','DL','Delta1','LGA','EWR','05:00:00','08:00:00',3,100),(1,'International','EK','Emirates1','JFK','MEX','05:00:00','05:00:00',24,500),(1,'International','UA','United1','MEX','SEA','10:00:00','08:00:00',22,2500),(2,'Domestic','AA','American1','JFK','EWR','05:00:00','08:00:00',3,100),(2,'Domestic','AS','Alaska1','JFK','EWR','10:00:00','16:00:00',6,500),(2,'International','EK','Emirates1','MEX','JFK','04:00:00','11:00:00',31,1000),(10,'Domestic','AA','American1','EWR','JFK','10:00:00','12:00:00',2,50);
+/*!40000 ALTER TABLE `flights` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `messages` (
+  `messageId` int NOT NULL AUTO_INCREMENT,
+  `sender` varchar(100) NOT NULL,
+  `receiver` varchar(100) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `body` varchar(1000) NOT NULL,
+  PRIMARY KEY (`messageId`),
+  KEY `sender` (`sender`),
+  KEY `receiver` (`receiver`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `users` (`id`),
+  CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `operationairports`
+--
+
+DROP TABLE IF EXISTS `operationairports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `operationairports` (
+  `airlineId` varchar(2) NOT NULL,
+  `airportId` varchar(3) NOT NULL,
+  PRIMARY KEY (`airlineId`,`airportId`),
+  KEY `airportId` (`airportId`),
+  CONSTRAINT `operationairports_ibfk_1` FOREIGN KEY (`airlineId`) REFERENCES `airlines` (`airlineId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operationairports_ibfk_2` FOREIGN KEY (`airportId`) REFERENCES `airports` (`airportId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `operationairports`
+--
+
+LOCK TABLES `operationairports` WRITE;
+/*!40000 ALTER TABLE `operationairports` DISABLE KEYS */;
+INSERT INTO `operationairports` VALUES ('DL','ACY'),('AS','ANC'),('DL','DEN'),('AA','EWR'),('AS','EWR'),('DL','EWR'),('NK','EWR'),('AA','GSP'),('UA','HNL'),('AA','JFK'),('AS','JFK'),('EK','JFK'),('WN','JFK'),('AS','LAS'),('WN','LAS'),('NK','LAX'),('WN','LAX'),('AA','LGA'),('DL','LGA'),('UA','LGA'),('EK','MEX'),('UA','MEX'),('WN','MIA'),('AA','SEA'),('AS','SEA'),('UA','SEA');
+/*!40000 ALTER TABLE `operationairports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `operationdays`
+--
+
+DROP TABLE IF EXISTS `operationdays`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `operationdays` (
+  `day` int NOT NULL,
+  `airlineId` varchar(2) NOT NULL,
+  `flightNumber` int NOT NULL,
+  PRIMARY KEY (`airlineId`,`day`,`flightNumber`),
+  KEY `airlineId` (`airlineId`,`flightNumber`),
+  CONSTRAINT `operationdays_ibfk_1` FOREIGN KEY (`airlineId`, `flightNumber`) REFERENCES `flights` (`airlineId`, `flightNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `operationdays`
+--
+
+LOCK TABLES `operationdays` WRITE;
+/*!40000 ALTER TABLE `operationdays` DISABLE KEYS */;
+INSERT INTO `operationdays` VALUES (1,'AA',1),(2,'AA',1),(3,'AA',1),(4,'AA',1),(5,'AA',1),(6,'AA',1),(7,'AA',1),(1,'AA',2),(2,'AA',2),(3,'AA',2),(4,'AA',2),(5,'AA',2),(6,'AA',2),(7,'AA',2),(1,'AA',10),(2,'AA',10),(3,'AA',10),(4,'AA',10),(5,'AA',10),(6,'AA',10),(7,'AA',10),(1,'AS',1),(2,'AS',1),(3,'AS',1),(4,'AS',1),(5,'AS',1),(6,'AS',1),(7,'AS',1),(1,'AS',2),(2,'AS',2),(3,'AS',2),(4,'AS',2),(5,'AS',2),(6,'AS',2),(7,'AS',2),(2,'DL',1),(3,'DL',1),(4,'DL',1),(5,'DL',1),(1,'EK',1),(6,'EK',1),(7,'EK',1),(1,'EK',2),(3,'EK',2),(4,'EK',2),(6,'EK',2),(7,'EK',2),(1,'UA',1),(2,'UA',1),(3,'UA',1),(4,'UA',1),(5,'UA',1),(6,'UA',1),(7,'UA',1);
+/*!40000 ALTER TABLE `operationdays` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reps`
+--
+
+DROP TABLE IF EXISTS `reps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reps` (
+  `id` varchar(100) NOT NULL DEFAULT '0',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `reps_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reps`
+--
+
+LOCK TABLES `reps` WRITE;
+/*!40000 ALTER TABLE `reps` DISABLE KEYS */;
+INSERT INTO `reps` VALUES ('emre1','Emre Urugulu'),('krit1','Krit Bhattarai'),('mark1','Mark Pirella'),('mike12','Michael Randolph'),('willie1','Wilson Peralta');
+/*!40000 ALTER TABLE `reps` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reservations`
+--
+
+DROP TABLE IF EXISTS `reservations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reservations` (
+  `ticketNumber` int NOT NULL,
+  `airlineId` varchar(2) NOT NULL,
+  `flightNumber` int NOT NULL,
+  `flightDate` date NOT NULL,
+  `isWaiting` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ticketNumber`,`airlineId`,`flightNumber`,`flightDate`),
+  KEY `flightNumber` (`flightNumber`),
+  KEY `airlineId` (`airlineId`),
+  CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`ticketNumber`) REFERENCES `tickets` (`ticketNumber`) ON UPDATE CASCADE,
+  CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`flightNumber`) REFERENCES `flights` (`flightNumber`) ON UPDATE CASCADE,
+  CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`airlineId`) REFERENCES `airlines` (`airlineId`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reservations`
+--
+
+LOCK TABLES `reservations` WRITE;
+/*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
+INSERT INTO `reservations` VALUES (20,'AA',1,'2021-12-09',0),(20,'AA',2,'2021-12-10',0),(21,'AA',1,'2021-12-09',0),(21,'EK',1,'2021-12-09',0),(21,'UA',1,'2021-12-09',0),(22,'AS',1,'2021-12-09',0),(22,'EK',1,'2021-12-09',0),(22,'UA',1,'2021-12-09',0),(23,'AA',1,'2021-12-09',0),(23,'EK',1,'2021-12-09',0),(23,'UA',1,'2021-12-09',0),(24,'AA',1,'2021-12-09',0),(24,'EK',1,'2021-12-09',0),(24,'UA',1,'2021-12-09',0),(25,'AA',1,'2021-12-09',0),(25,'EK',1,'2021-12-09',0),(25,'UA',1,'2021-12-09',0),(26,'AA',1,'2021-12-09',0),(26,'EK',1,'2021-12-09',0),(26,'UA',1,'2021-12-09',0),(27,'AA',1,'2021-12-09',0),(27,'EK',1,'2021-12-09',0),(27,'UA',1,'2021-12-09',0),(28,'AA',1,'2021-12-09',0),(29,'AA',1,'2021-12-10',0),(29,'EK',1,'2021-12-10',0),(29,'UA',1,'2021-12-10',0),(30,'AA',1,'2021-12-10',0),(30,'AS',2,'2021-12-10',0),(31,'AA',1,'2021-12-10',0),(31,'AA',2,'2021-12-10',0),(31,'AS',2,'2021-12-10',0),(32,'AA',2,'2021-12-10',0),(32,'AS',1,'2021-12-10',0),(32,'AS',2,'2021-12-10',0),(33,'AA',1,'2021-12-09',0),(33,'AA',2,'2021-12-11',0),(34,'AA',1,'2021-10-12',0),(35,'AA',1,'2021-01-10',0),(36,'AS',1,'2021-10-12',0),(36,'AS',2,'2021-10-13',0),(37,'AA',1,'2021-10-12',0),(38,'AA',1,'2021-12-11',0);
+/*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `seats`
+--
+
+DROP TABLE IF EXISTS `seats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `seats` (
+  `aircraftId` varchar(10) NOT NULL,
+  `seatNumber` varchar(5) NOT NULL,
+  `isOccupied` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`aircraftId`,`seatNumber`),
+  CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`aircraftId`) REFERENCES `flights` (`airlineId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `seats`
+--
+
+LOCK TABLES `seats` WRITE;
+/*!40000 ALTER TABLE `seats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `seats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tickets`
+--
+
+DROP TABLE IF EXISTS `tickets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tickets` (
+  `ticketNumber` int NOT NULL AUTO_INCREMENT,
+  `customerId` varchar(100) NOT NULL,
+  `repId` varchar(100) DEFAULT NULL,
+  `reservationDate` datetime NOT NULL,
+  `hasStops` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ticketNumber`),
+  KEY `customerId` (`customerId`),
+  KEY `repId` (`repId`),
+  CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`customerId`) REFERENCES `customers` (`id`),
+  CONSTRAINT `tickets_ibfk_2` FOREIGN KEY (`repId`) REFERENCES `reps` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tickets`
+--
+
+LOCK TABLES `tickets` WRITE;
+/*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (20,'mark@yahoo.com',NULL,'2021-12-10 03:12:34',0),(21,'mark@yahoo.com',NULL,'2021-12-10 20:14:36',1),(22,'mark@yahoo.com',NULL,'2021-12-10 20:14:40',1),(23,'mark@yahoo.com',NULL,'2021-12-10 20:14:49',1),(24,'mark@yahoo.com',NULL,'2021-12-10 20:17:38',1),(25,'mark@yahoo.com',NULL,'2021-12-10 20:17:50',1),(26,'mark@yahoo.com',NULL,'2021-12-10 20:20:58',1),(27,'mark@yahoo.com',NULL,'2021-12-10 20:22:01',1),(28,'mark@yahoo.com',NULL,'2021-12-10 20:22:03',0),(29,'kkb@rutgers.edu',NULL,'2021-12-10 20:31:05',1),(30,'kkb@rutgers.edu',NULL,'2021-12-10 21:27:58',1),(31,'kkb@rutgers.edu',NULL,'2021-12-10 21:28:02',1),(32,'kkb@rutgers.edu',NULL,'2021-12-10 21:28:06',1),(33,'kkb@rutgers.edu',NULL,'2021-12-10 21:28:18',0),(34,'mark@yahoo.com',NULL,'2021-12-10 22:19:12',0),(35,'emre@hotmail.com',NULL,'2021-12-10 00:00:00',0),(36,'mark@yahoo.com',NULL,'2021-12-10 22:45:10',0),(37,'mark@yahoo.com',NULL,'2021-12-10 22:45:48',0),(38,'mark@yahoo.com',NULL,'2021-12-10 22:46:11',0);
+/*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` varchar(100) NOT NULL,
+  `type` varchar(10) DEFAULT NULL,
+  `password` varchar(8) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('admin','admin','root1234'),('emre@hotmail.com','Customers','12345678'),('emre1','reps','12457896'),('kkb@rutgers.edu','customers','32165498'),('krit1','reps','12345678'),('mark@yahoo.com','customers','12345678'),('mark1','reps','12345678'),('mike12','reps','12345678'),('willie1','reps','12345678');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-12-10 22:54:05
+</pre></body></html>Ztext/x-sqlUUTF-8_£https://content.sakai.rutgers.edu/access/content/attachment/99ca2d0e-b243-4536-9142-1d92bb5f3fbe/Assignments/fba1996b-94e2-48c4-9e76-3b3085a44ba3/Group8_Schema.sql    ( ? Q g … ” •ZDZOZU                           Zû

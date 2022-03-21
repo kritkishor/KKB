@@ -1,0 +1,37 @@
+.box {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        width: 50%;
+        height: 250px;
+        border: 2px solid green;
+        }
+.box div {
+        width: 100px;
+        padding: 15px 70px;
+        text-align: center;
+        color: #000000;
+        font-family: arial, sans-serif;
+      }
+.buttons{
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 50px;
+}
+.buttons span{
+	font-size:20px;
+	color:brown;
+}
+.rows{
+	display: flex;
+	padding-bottom: 10px;
+	
+} 
+.elements{
+	padding-left: 30px;
+	padding-right: 30px;
+}

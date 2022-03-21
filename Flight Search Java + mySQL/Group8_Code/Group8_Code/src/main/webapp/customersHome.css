@@ -1,0 +1,49 @@
+.side-bar{
+	float: left;
+	width: 10%;
+	height: 100vh;
+	position: fixed;	
+	background-color: black;
+	overflow-x: hidden;
+	padding-top: 0;
+}
+.side-bar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: gray;
+  display: block;
+}
+
+.side-bar a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .side-bar {padding-top: 15px;}
+  .side-bar a {font-size: 18px;}
+}
+
+.main-display{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	
+}		
+.dashboard-items{
+	padding-left: 15%;
+	padding-right: 50px;
+}
+.booking-form{
+	height: 220px;
+	width: 500px;
+	background-color: lightgreen;
+}
+.rows{
+	display: flex;
+	padding-bottom: 10px;
+	
+} 
+.elements{
+	padding-right: 30px;
+}
