@@ -1,0 +1,23 @@
+***********************************************
+Testing the server using browser:
+
+- The server works perfectly with browsers for any number of users!
+- It will set a cookie which the browser will return.
+- If you try to login multiple users in the same browser, the user logged in most recently will be accredited. Because of 
+  the use of non persistent connection by the given python client, lack of details, and time constraints,
+  this loophole should be reasonable!
+- If you open multiple users using multiple browsers, everything will run smoothly.
+
+************************************************
+Testing the server using python clients:
+
+- The clients do not provide any cookie headers, so this testing method is unfair, and should not be used!
+
+*************************************************
+Files:
+ - Messages: allMessages.txt
+ - Credentials: credentials.txt
+ - Cookies: cookies.txt
+ 
+ *************************************************
+ Thank you!
