@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.PhotoDisplayActivity">
+
+    <ImageView
+        android:id="@+id/imageView_photo"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/textView_photoNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/photoName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_photo" />
+
+    <TextView
+        android:id="@+id/textView_photoTagsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/photoTags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_photoDisplayPrevious" />
+
+    <Button
+        android:id="@+id/btn_photoDisplayPrevious"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous"
+        app:layout_constraintEnd_toStartOf="@+id/btn_photoDisplayNext"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_photoNameLabel" />
+
+    <Button
+        android:id="@+id/btn_photoDisplayNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_photoDisplayPrevious"
+        app:layout_constraintTop_toTopOf="@+id/btn_photoDisplayPrevious" />
+
+    <Button
+        android:id="@+id/btn_deleteTag"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Delete Tag"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_addPersonTag"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Add Person"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addLocationTag"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_addLocationTag"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Add Location"
+        app:layout_constraintBottom_toTopOf="@+id/btn_deleteTag"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/listView_tagList"
+        android:layout_width="263dp"
+        android:layout_height="103dp"
+        android:layout_marginEnd="8dp"
+        android:scrollbarSize="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_photoDisplayExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_addPersonTag"
+        app:layout_constraintTop_toTopOf="@+id/textView_photoTagsLabel" />
+
+    <Button
+        android:id="@+id/btn_photoDisplayExit"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Return to Gallery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_deleteTag" />
+</androidx.constraintlayout.widget.ConstraintLayout>

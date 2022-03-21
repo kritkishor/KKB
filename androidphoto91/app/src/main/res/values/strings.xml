@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Photo Album</string>
+    <string name="open">Open</string>
+    <string name="add">Add</string>
+    <string name="rename">Rename</string>
+    <string name="remove">Remove</string>
+    <string name="display">Display</string>
+    <string name="move">Move</string>
+    <string name="search">Search</string>
+    <string name="title_activity_photo_gallery">PhotoGalleryActivity</string>
+    <string name="photoName">Photo Name</string>
+    <string name="photoTags">Photo Tags</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="and">and</string>
+    <string name="or">or</string>
+    <string name="person1">Person1</string>
+    <string name="person2">Person2</string>
+    <string name="location1">Location1</string>
+    <string name="location2">Location2</string>
+    <string name="value1">Value1</string>
+    <string name="value2">Value2</string>
+</resources>

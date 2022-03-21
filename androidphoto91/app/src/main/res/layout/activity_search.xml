@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="269dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/autoComplete_value1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radio_person1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/person1" />
+
+        <RadioButton
+            android:id="@+id/radio_location1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/location1" />
+    </RadioGroup>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoComplete_value1"
+        android:layout_width="395dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="23dp"
+        android:text=""
+        android:hint="Person or Location"
+        android:completionThreshold="1"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="293dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoComplete_value1">
+
+        <RadioButton
+            android:id="@+id/radio_and"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/and" />
+
+        <RadioButton
+            android:id="@+id/radio_or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/or" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="gone" />
+    </RadioGroup>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoComplete_value2"
+        android:layout_width="392dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="6dp"
+        android:text=""
+        android:hint="Person or Location"
+        android:completionThreshold="1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_startSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup3"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/autoComplete_value2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/radio_person2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/person2" />
+
+        <RadioButton
+            android:id="@+id/radio_location2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/location2" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:visibility="gone"
+            tools:visibility="gone" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_startSearch"
+        android:layout_width="400dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="13dp"
+        android:text="@string/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoComplete_value2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
