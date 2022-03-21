@@ -1,0 +1,19 @@
+Name: Krit Bhattarai
+NETID: kkb62
+PARTNER: NONE
+
+**
+Testing Strategy:
+
+I tested the program using netcat: Opened different terminal sessions connected to my program and sent both good(correct format and length) and bad(incorrect format, incorrect length) requests to it.
+When good requests were sent my program behaved exactly as it should (set,get,del worked properly, gave correct response to the client, messages were retrievable by get once set was done and deletable too, gave KNF if no such message was set or had benn set and deleted).
+When bad requests were sent, my program provided appropriate error response and terminated the client connection. I tried the scenarios like giving unknown command (other than SET GET DEL), giving bad length (other than a number), giving message not equal to the length given earlier (both longer and shorter).
+I also tested if the program would take any type of key and id (alphanumberic or nonalphanumeric except newline ('\n') and it accepted the key and id and carried out the appropriate command.
+I also carefully checked if the data stored or deleted by one client was being stored/removed from the data bank and when other client tried to remove/access, it would carry out the process.
+Furthermore, I used VALGRIND and Address Sanitizer to check for any memory leaks and errors and fixed all the issues and now it does not show any such errors.
+
+**
+NOTES:
+1. This program only recognizes SET,GET,DEL (case sensitive) as valid commands
+2. It does not allow a key without an id
+3. It does not allow an id without a key
